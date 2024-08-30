@@ -1,40 +1,23 @@
-// // ProgressPopup.jsx
-// import { useState, useEffect } from 'react';
-// import { fetchUserProgress } from '../services/userService'; // Service to fetch user progress
-// import './Progress.css';
+import React from 'react';
 
-// const ProgressPopup = () => {
-//   const [progress, setProgress] = useState(0);
-//   const [isVisible, setIsVisible] = useState(false);
+function ProgressPopup() {
+  // Retrieve progress data from localStorage
+  const completedVideos = JSON.parse(localStorage.getItem('completedVideos')) || [];
+  const pendingVideos = JSON.parse(localStorage.getItem('pendingVideos')) || [];
+  
+  // Calculate progress percentage
+  const totalVideos = completedVideos.length + pendingVideos.length;
+  const completedPercentage = totalVideos > 0 ? (completedVideos.length / totalVideos) * 100 : 0;
 
-//   useEffect(() => {
-//     const getProgress = async () => {
-//       try {
-//         const data = await fetchUserProgress();
-//         setProgress(data.progressPercentage);
-//       } catch (error) {
-//         console.error('Error fetching progress:', error);
-//       }
-//     };
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Learning Progress</h1>
+      <p>Total Videos: {totalVideos}</p>
+      <p>Completed Videos: {completedVideos.length}</p>
+      <p>Pending Videos: {pendingVideos.length}</p>
+      <p>Progress: {completedPercentage.toFixed(2)}%</p>
+    </div>
+  );
+}
 
-//     getProgress();
-//   }, []);
-
-//   const toggleVisibility = () => setIsVisible(!isVisible);
-
-//   return (
-//     <div>
-//       <button onClick={toggleVisibility} className="progress-button">
-//         🎯 Progress
-//       </button>
-//       {isVisible && (
-//         <div className="progress-popup">
-//           <h4>Video Progress</h4>
-//           <p>{progress}% completed</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ProgressPopup;
+export default ProgressPopup;
