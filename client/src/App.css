@@ -1,0 +1,28 @@
+/* General styles for App */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  margin-top: 60px; /* Adjust based on the height of the navbar */
+  display: flex;
+}
+/* Ensure the navbar stays on top */
+.navbar {
+  position: fixed; /* or relative, depending on your needs */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Make sure it's on top */
+  background-color: #fff; /* Or any background color */
+  border-bottom: 1px solid #ccc; /* Optional border */
+}
+
+/* Main content area should start below the navbar */
+.main-content {
+  margin-top: 60px; /* Adjust this value to the height of your navbar */
+  padding: 20px; /* Optional padding */
+}
+
+

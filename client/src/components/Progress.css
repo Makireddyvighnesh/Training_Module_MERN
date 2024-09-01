@@ -1,0 +1,21 @@
+/* ProgressPopup.css */
+.progress-button {
+    background-color: #4caf50; /* Green color for the button */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .progress-popup {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
